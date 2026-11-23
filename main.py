@@ -9,6 +9,9 @@ import os
 
 LINE = "My agent spent forty minutes debugging a typo in a file it deleted in minute two, then announced the refactor was complete."
 
+# The gate requires 1-200 UTF-8 characters, not only whitespace.
+assert 1 <= len(LINE) <= 200 and LINE.strip(), "entry line violates the 1-200 character gate"
+
 
 def main() -> None:
     os.makedirs("/output", exist_ok=True)
